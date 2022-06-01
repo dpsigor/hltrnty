@@ -40,3 +40,12 @@ func Reduce[T any, U any](s []T, f func(acc U, cur T) U, zero U) U {
 	}
 	return zero
 }
+
+func Some[T any](s []T, f func(T) bool) bool {
+	for _, v := range s {
+		if f(v) {
+			return true
+		}
+	}
+	return false
+}
